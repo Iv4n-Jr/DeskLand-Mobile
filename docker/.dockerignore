@@ -1,0 +1,10 @@
+.git
+.github
+mobile
+docs
+kubernetes
+**/node_modules
+**/.env
+**/.env.*
+!**/.env.example
+**/build
