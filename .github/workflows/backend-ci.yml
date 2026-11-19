@@ -1,0 +1,57 @@
+
+name: DeskLand - Backend CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - '.github/workflows/backend-ci.yml'
+
+  pull_request:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - '.github/workflows/backend-ci.yml'
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  backend-test:
+    name: Verificar API Node.js
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - name: Baixar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Verificar sintaxe JavaScript
+        run: |
+          find . -type f -name '*.js' \
+            -not -path './node_modules/*' \
+            -print0 | xargs -0 -r -n1 node --check
+
+      - name: Verificar arquivos principais
+        run: |
+          test -f app.js
+          test -f server.js
+          test -f package.json
+          test -f routes/usuarioRoutes.js
+          echo "Arquivos principais encontrados!"
