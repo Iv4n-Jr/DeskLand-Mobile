@@ -1,0 +1,103 @@
+name: DeskLand - Kubernetes CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - 'docker/**'
+      - '.dockerignore'
+      - 'kubernetes/**'
+      - '.github/workflows/kubernetes-ci.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - 'docker/**'
+      - '.dockerignore'
+      - 'kubernetes/**'
+      - '.github/workflows/kubernetes-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  kubernetes-test:
+    name: Testar API no kind
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Baixar codigo
+        uses: actions/checkout@v4
+
+      - name: Construir imagem Docker
+        run: docker build -f docker/Dockerfile -t deskland-api:k8s-v1 .
+
+      - name: Criar cluster Kubernetes temporario
+        uses: helm/kind-action@v1.15.1
+        with:
+          cluster_name: deskland-ci
+
+      - name: Carregar imagem no kind
+        run: kind load docker-image deskland-api:k8s-v1 --name deskland-ci
+
+      - name: Criar MongoDB temporario para testes
+        run: |
+          kubectl create deployment deskland-mongo --image=mongo:8 --port=27017
+          kubectl expose deployment deskland-mongo --name=deskland-mongo --port=27017 --target-port=27017
+          kubectl rollout status deployment/deskland-mongo --timeout=180s
+
+      - name: Configurar variaveis de teste sem credenciais reais
+        run: |
+          kubectl create secret generic deskland-api-secret \
+            --from-literal=MONGO_URI='mongodb://deskland-mongo:27017/deskland_ci' \
+            --from-literal=JWT_SECRET='somente-para-testes-ci-nao-usar-em-producao' \
+            --from-literal=PORT='3000'
+
+      - name: Implantar API e Service
+        run: |
+          kubectl apply -f kubernetes/deployment.yaml
+          kubectl apply -f kubernetes/service.yaml
+          kubectl rollout status deployment/deskland-api --timeout=180s
+          kubectl get pods
+          kubectl get services
+
+      - name: Confirmar conexao efetiva com MongoDB de teste
+        run: |
+          kubectl exec deployment/deskland-api -c api -- node -e '
+            const m = require("mongoose");
+            (async () => {
+              await m.connect(process.env.MONGO_URI, { serverSelectionTimeoutMS: 15000 });
+              const result = await m.connection.db.admin().ping();
+              if (result.ok !== 1) throw new Error("Ping MongoDB nao aprovado");
+              console.log("MongoDB de teste acessivel: ping OK");
+              await m.disconnect();
+            })().catch(err => { console.error(err.message); process.exit(1); });
+          '
+
+      - name: Testar API HTTP atraves do Service Kubernetes
+        shell: bash
+        run: |
+          set -euo pipefail
+          kubectl port-forward service/deskland-api 8080:80 >/tmp/deskland-port-forward.log 2>&1 &
+          PF_PID=$!
+          trap 'kill "$PF_PID" 2>/dev/null || true' EXIT
+          for i in $(seq 1 30); do
+            if curl --fail --silent --show-error http://127.0.0.1:8080/health >/tmp/deskland-health.json; then
+              cat /tmp/deskland-health.json
+              python3 -c 'import json; x=json.load(open("/tmp/deskland-health.json")); assert x["status"] == "ok"'
+              exit 0
+            fi
+            sleep 2
+          done
+          cat /tmp/deskland-port-forward.log
+          exit 1
+
+      - name: Logs de diagnostico em caso de falha
+        if: failure()
+        run: |
+          kubectl get pods -o wide || true
+          kubectl describe deployment deskland-api || true
+          kubectl logs deployment/deskland-api --tail=80 || true
+          kubectl logs deployment/deskland-mongo --tail=40 || true
