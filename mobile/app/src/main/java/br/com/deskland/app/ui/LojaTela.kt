@@ -1,5 +1,6 @@
 package br.com.deskland.app.ui
 
+import androidx.compose.ui.platform.testTag
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -94,11 +95,20 @@ private fun LojaTela(
             }
         }
     ) { espaco ->
-        Column(
-            Modifier.fillMaxSize().padding(espaco).padding(horizontal = 16.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            Text("Deskland", style = MaterialTheme.typography.headlineLarge, color = cores.primary)
+        
+Column(
+    modifier = Modifier
+        .fillMaxSize()
+        .padding(espaco)
+        .padding(horizontal = 16.dp)
+        .testTag("tela_inicial"),
+    verticalArrangement = Arrangement.spacedBy(8.dp)
+) {
+    Text(
+        "Deskland",
+        style = MaterialTheme.typography.headlineLarge,
+        color = cores.primary
+    )
             Text("Catálogo de informática")
             OutlinedTextField(
                 value = estado.busca,
