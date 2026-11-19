@@ -1,52 +1,62 @@
 
-name: Android CI
+name: DeskLand Mobile - CI
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
   pull_request:
-    branches: [main]
+    branches:
+      - main
 
   workflow_dispatch:
 
-jobs:
-  build:
-    name: Testar e compilar Android
-    runs-on: ubuntu-latest
+permissions:
+  contents: read
 
-    permissions:
-      contents: read
+jobs:
+  android-build:
+    name: Build e Testes Android
+
+    runs-on: ubuntu-latest
 
     defaults:
       run:
         working-directory: mobile
 
     steps:
-      - name: Baixar repositório
+      # Baixar os arquivos do GitHub
+      - name: Checkout do projeto
         uses: actions/checkout@v4
 
-      - name: Configurar Java
+      # Configurar ambiente Java
+      - name: Configurar JDK
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
+      # Preparar Gradle
       - name: Configurar Gradle
         uses: gradle/actions/setup-gradle@v4
 
+      # Permissão de execução
       - name: Permitir execução do Gradle
         run: chmod +x gradlew
 
-      - name: Executar testes unitários
+      # Testes unitários
+      - name: Executar testes
         run: ./gradlew testDebugUnitTest
 
-      - name: Compilar aplicativo
+      # Compilar aplicativo
+      - name: Gerar APK
         run: ./gradlew assembleDebug
 
-      - name: Salvar APK
+      # Salvar aplicativo compilado
+      - name: Publicar APK
         uses: actions/upload-artifact@v4
         with:
-          name: aplicativo-android
+          name: DeskLand-Mobile-APK
           path: mobile/app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
