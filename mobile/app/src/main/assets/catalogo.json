@@ -1,0 +1,308 @@
+[
+  {
+    "id": 1,
+    "nome": "Processador AMD Ryzen 5 5600 6-Core",
+    "categoria": "Processadores",
+    "marca": "AMD",
+    "descricao": "6 nucleos, 12 threads, socket AM4. Excelente custo-beneficio para jogos.",
+    "centavos": 69990,
+    "estoque": 17
+  },
+  {
+    "id": 2,
+    "nome": "Processador AMD Ryzen 7 5700X 8-Core",
+    "categoria": "Processadores",
+    "marca": "AMD",
+    "descricao": "8 nucleos, 16 threads, socket AM4. Ideal para produtividade e games.",
+    "centavos": 109990,
+    "estoque": 11
+  },
+  {
+    "id": 3,
+    "nome": "Processador Intel Core i5-12400F",
+    "categoria": "Processadores",
+    "marca": "Intel",
+    "descricao": "6 nucleos, 12 threads, socket LGA1700. Requer placa de video dedicada.",
+    "centavos": 79990,
+    "estoque": 16
+  },
+  {
+    "id": 4,
+    "nome": "Processador Intel Core i7-12700KF",
+    "categoria": "Processadores",
+    "marca": "Intel",
+    "descricao": "Processador de alto desempenho desbloqueado para overclock.",
+    "centavos": 164990,
+    "estoque": 7
+  },
+  {
+    "id": 5,
+    "nome": "Placa de Video GeForce RTX 4060 8GB",
+    "categoria": "Placas de vídeo",
+    "marca": "NVIDIA",
+    "descricao": "GPU com 8GB GDDR6, ray tracing e DLSS. Fabricante/modelo ilustrativo.",
+    "centavos": 219990,
+    "estoque": 9
+  },
+  {
+    "id": 6,
+    "nome": "Placa de Video Radeon RX 7600 8GB",
+    "categoria": "Placas de vídeo",
+    "marca": "AMD",
+    "descricao": "GPU 8GB GDDR6 para jogos em Full HD. Fabricante/modelo ilustrativo.",
+    "centavos": 179990,
+    "estoque": 10
+  },
+  {
+    "id": 7,
+    "nome": "Placa de Video GeForce RTX 3060 12GB",
+    "categoria": "Placas de vídeo",
+    "marca": "NVIDIA",
+    "descricao": "12GB GDDR6, boa opcao para jogos e tarefas criativas.",
+    "centavos": 189990,
+    "estoque": 6
+  },
+  {
+    "id": 8,
+    "nome": "Memoria RAM DDR4 16GB 3200MHz",
+    "categoria": "Memórias RAM",
+    "marca": "Kingston",
+    "descricao": "Modulo unico 16GB DDR4 3200MHz para desktop.",
+    "centavos": 24990,
+    "estoque": 35
+  },
+  {
+    "id": 9,
+    "nome": "Kit Memoria RAM DDR4 32GB (2x16GB) 3200MHz",
+    "categoria": "Memórias RAM",
+    "marca": "Corsair",
+    "descricao": "Kit dual-channel de 32GB DDR4 para desktop.",
+    "centavos": 49990,
+    "estoque": 18
+  },
+  {
+    "id": 10,
+    "nome": "Memoria RAM DDR5 16GB 5600MHz",
+    "categoria": "Memórias RAM",
+    "marca": "Kingston",
+    "descricao": "Modulo 16GB DDR5 5600MHz para plataformas compativeis.",
+    "centavos": 36990,
+    "estoque": 22
+  },
+  {
+    "id": 11,
+    "nome": "SSD NVMe M.2 500GB PCIe 4.0",
+    "categoria": "Armazenamento",
+    "marca": "Kingston",
+    "descricao": "SSD M.2 NVMe 500GB. Verifique suporte PCIe da placa-mae.",
+    "centavos": 27990,
+    "estoque": 41
+  },
+  {
+    "id": 12,
+    "nome": "SSD NVMe M.2 1TB PCIe 4.0",
+    "categoria": "Armazenamento",
+    "marca": "WD",
+    "descricao": "SSD M.2 NVMe de 1TB para jogos, sistema e arquivos.",
+    "centavos": 44990,
+    "estoque": 29
+  },
+  {
+    "id": 13,
+    "nome": "SSD SATA 2.5 480GB",
+    "categoria": "Armazenamento",
+    "marca": "Crucial",
+    "descricao": "SSD SATA 2.5 polegadas com 480GB.",
+    "centavos": 22990,
+    "estoque": 24
+  },
+  {
+    "id": 14,
+    "nome": "Placa-Mae B550M AM4 DDR4",
+    "categoria": "Placas-mãe",
+    "marca": "Gigabyte",
+    "descricao": "Formato micro-ATX, socket AM4, suporte a memoria DDR4.",
+    "centavos": 64990,
+    "estoque": 12
+  },
+  {
+    "id": 15,
+    "nome": "Placa-Mae B660M LGA1700 DDR4",
+    "categoria": "Placas-mãe",
+    "marca": "ASUS",
+    "descricao": "Formato micro-ATX, socket LGA1700, suporte DDR4.",
+    "centavos": 74990,
+    "estoque": 10
+  },
+  {
+    "id": 16,
+    "nome": "Fonte ATX 550W 80 Plus Bronze",
+    "categoria": "Fontes",
+    "marca": "Corsair",
+    "descricao": "Fonte de alimentacao 550W com certificacao 80 Plus Bronze.",
+    "centavos": 34990,
+    "estoque": 19
+  },
+  {
+    "id": 17,
+    "nome": "Fonte ATX 650W 80 Plus Bronze",
+    "categoria": "Fontes",
+    "marca": "Cooler Master",
+    "descricao": "Fonte 650W para desktops de jogos e trabalho.",
+    "centavos": 44990,
+    "estoque": 14
+  },
+  {
+    "id": 18,
+    "nome": "Gabinete Gamer Mid Tower Preto com Vidro",
+    "categoria": "Gabinetes",
+    "marca": "Rise Mode",
+    "descricao": "Gabinete mid tower, painel lateral transparente, sem fonte.",
+    "centavos": 29990,
+    "estoque": 16
+  },
+  {
+    "id": 19,
+    "nome": "Gabinete Gamer Mini Tower Branco",
+    "categoria": "Gabinetes",
+    "marca": "Pichau Design Ficticio",
+    "descricao": "Gabinete compacto branco, suporte para placas micro-ATX.",
+    "centavos": 25990,
+    "estoque": 12
+  },
+  {
+    "id": 20,
+    "nome": "Monitor Gamer 24 polegadas Full HD 165Hz",
+    "categoria": "Monitores",
+    "marca": "AOC",
+    "descricao": "Tela 24 polegadas, resolucao Full HD e 165Hz.",
+    "centavos": 89990,
+    "estoque": 13
+  },
+  {
+    "id": 21,
+    "nome": "Monitor 27 polegadas IPS Full HD 100Hz",
+    "categoria": "Monitores",
+    "marca": "LG",
+    "descricao": "Monitor IPS de 27 polegadas para estudo e escritorio.",
+    "centavos": 84990,
+    "estoque": 17
+  },
+  {
+    "id": 22,
+    "nome": "Teclado Mecanico Gamer RGB ABNT2",
+    "categoria": "Periféricos",
+    "marca": "Redragon",
+    "descricao": "Teclado mecanico com iluminacao RGB e layout brasileiro.",
+    "centavos": 26990,
+    "estoque": 30
+  },
+  {
+    "id": 23,
+    "nome": "Mouse Gamer 12000 DPI RGB",
+    "categoria": "Periféricos",
+    "marca": "Logitech",
+    "descricao": "Mouse optico gamer com ajuste de sensibilidade.",
+    "centavos": 18990,
+    "estoque": 38
+  },
+  {
+    "id": 24,
+    "nome": "Headset Gamer USB com Microfone",
+    "categoria": "Periféricos",
+    "marca": "HyperX",
+    "descricao": "Headset para jogos e chamadas com microfone integrado.",
+    "centavos": 32990,
+    "estoque": 24
+  },
+  {
+    "id": 25,
+    "nome": "Mousepad Gamer Grande 900x400mm",
+    "categoria": "Periféricos",
+    "marca": "Havit",
+    "descricao": "Mousepad estendido de tecido com base antiderrapante.",
+    "centavos": 7990,
+    "estoque": 44
+  },
+  {
+    "id": 26,
+    "nome": "Air Cooler Torre 120mm",
+    "categoria": "Coolers e refrigeração",
+    "marca": "DeepCool",
+    "descricao": "Cooler a ar com ventoinha de 120mm. Confira compatibilidade do socket.",
+    "centavos": 17990,
+    "estoque": 21
+  },
+  {
+    "id": 27,
+    "nome": "Kit 3 Ventoinhas RGB 120mm",
+    "categoria": "Coolers e refrigeração",
+    "marca": "Rise Mode",
+    "descricao": "Conjunto de tres ventoinhas para fluxo de ar do gabinete.",
+    "centavos": 12990,
+    "estoque": 31
+  },
+  {
+    "id": 28,
+    "nome": "Notebook 15.6 polegadas Ryzen 5 8GB 256GB SSD",
+    "categoria": "Notebooks",
+    "marca": "Acer",
+    "descricao": "Notebook para estudo e trabalho, tela 15.6, 8GB RAM e SSD 256GB.",
+    "centavos": 279990,
+    "estoque": 8
+  },
+  {
+    "id": 29,
+    "nome": "Notebook 15.6 polegadas Core i5 16GB 512GB SSD",
+    "categoria": "Notebooks",
+    "marca": "Lenovo",
+    "descricao": "Notebook para produtividade, 16GB RAM e SSD 512GB.",
+    "centavos": 359990,
+    "estoque": 6
+  },
+  {
+    "id": 30,
+    "nome": "Roteador Wi-Fi 6 Dual Band AX1800",
+    "categoria": "Redes e acessórios",
+    "marca": "TP-Link",
+    "descricao": "Roteador dual band com padrao Wi-Fi 6.",
+    "centavos": 34990,
+    "estoque": 19
+  },
+  {
+    "id": 31,
+    "nome": "Adaptador Wi-Fi USB Dual Band",
+    "categoria": "Redes e acessórios",
+    "marca": "TP-Link",
+    "descricao": "Adaptador USB para conexao sem fio em computadores.",
+    "centavos": 9990,
+    "estoque": 36
+  },
+  {
+    "id": 32,
+    "nome": "Cabo HDMI 2.0 de 2 Metros",
+    "categoria": "Redes e acessórios",
+    "marca": "Ugreen",
+    "descricao": "Cabo HDMI 2 metros para monitores e televisores.",
+    "centavos": 4990,
+    "estoque": 47
+  },
+  {
+    "id": 33,
+    "nome": "CPU Pentium Dual-Core",
+    "categoria": "Processadores",
+    "marca": "Intel",
+    "descricao": "Processador Intel Pentium Dual-Core para computadores de escritório antigos.",
+    "centavos": 1900,
+    "estoque": 13
+  },
+  {
+    "id": 34,
+    "nome": "Mouse Gamer",
+    "categoria": "Periféricos",
+    "marca": "Redragon",
+    "descricao": "Mouse gamer necessário para todos os jogadores que amam jogar pelo PC!",
+    "centavos": 5000,
+    "estoque": 150
+  }
+]
