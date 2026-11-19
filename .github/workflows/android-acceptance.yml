@@ -34,15 +34,15 @@ jobs:
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
 
+      
       - name: Executar testes Android
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 35
           arch: x86_64
           profile: pixel_6
-          script: |
-            cd mobile
-            ./gradlew connectedDebugAndroidTest
+          script: ./mobile/gradlew -p mobile connectedDebugAndroidTest
+
 
       - name: Publicar relatorios
         if: always()
